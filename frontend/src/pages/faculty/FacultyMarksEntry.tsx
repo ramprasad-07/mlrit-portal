@@ -27,8 +27,8 @@ export const FacultyMarksEntry: React.FC = () => {
       try {
         const [clsRes, exRes, stuRes] = await Promise.all([
           api.get('/faculty/classes'),
-          api.get('/admin/exams'),
-          api.get('/admin/students'),
+          api.get('/faculty/exams'),
+          api.get('/faculty/students'),
         ]);
         setClasses(clsRes.data);
         setExams(exRes.data);
@@ -98,7 +98,7 @@ export const FacultyMarksEntry: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -175,7 +175,7 @@ export const FacultyMarksEntry: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
           <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <FileSpreadsheet className="w-5 h-5 mr-2 text-[#800020]" />
+            <FileSpreadsheet className="w-5 h-5 mr-2 text-[#1e40af]" />
             Student Evaluation Sheet ({selectedClass?.course?.code} - Sec {selectedClass?.section})
           </h2>
         </div>
@@ -197,7 +197,7 @@ export const FacultyMarksEntry: React.FC = () => {
                 const existing = marks.find((m) => m.student.id === student.id);
                 return (
                   <tr key={student.id} className="hover:bg-slate-50/60 transition">
-                    <td className="px-6 py-4 font-mono font-bold text-[#800020]">
+                    <td className="px-6 py-4 font-mono font-bold text-[#1e40af]">
                       {student.hallTicketNo}
                     </td>
                     <td className="px-6 py-4 font-semibold text-slate-900">
@@ -221,7 +221,7 @@ export const FacultyMarksEntry: React.FC = () => {
                     <td className="px-6 py-4 text-right">
                       <button
                         onClick={() => openEntryModal(student, existing)}
-                        className="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold inline-flex items-center transition"
+                        className="px-3.5 py-1.5 rounded-lg bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold inline-flex items-center transition"
                       >
                         <Edit3 className="w-3.5 h-3.5 mr-1" />
                         {existing ? 'Revise Marks' : 'Enter Score'}
@@ -254,7 +254,7 @@ export const FacultyMarksEntry: React.FC = () => {
               required
               value={internalScore}
               onChange={(e) => setInternalScore(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -265,7 +265,7 @@ export const FacultyMarksEntry: React.FC = () => {
             <select
               value={grade}
               onChange={(e) => setGrade(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             >
               <option value="O">O (Outstanding - 10)</option>
               <option value="A+">A+ (Excellent - 9)</option>
@@ -288,7 +288,7 @@ export const FacultyMarksEntry: React.FC = () => {
               value={reason}
               onChange={(e) => setReason(e.target.value)}
               placeholder="e.g. Mid-1 script valuation checked; Re-totaling correction"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -303,7 +303,7 @@ export const FacultyMarksEntry: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Auditing & Saving...' : 'Save & Audit'}
             </button>

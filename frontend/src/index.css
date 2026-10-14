@@ -2,11 +2,14 @@
 
 @layer base {
   :root {
-    --mlrit-maroon: #800020;
-    --mlrit-maroon-dark: #5c0017;
-    --mlrit-maroon-light: #9e1b32;
-    --mlrit-gold: #d97706;
+    --mlrit-primary: #1e40af;
+    --mlrit-primary-dark: #1e3a8a;
+    --mlrit-gold: #f59e0b;
+    --mlrit-accent-pink: #db2777;
     --mlrit-navy: #0f172a;
+    --mlrit-maroon: #1e40af;
+    --mlrit-maroon-dark: #1e3a8a;
+    --mlrit-maroon-light: #2563eb;
   }
 
   body {

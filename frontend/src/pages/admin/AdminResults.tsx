@@ -38,7 +38,7 @@ export const AdminResults: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -73,7 +73,7 @@ export const AdminResults: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <Award className="w-5 h-5 mr-2 text-[#800020]" />
+            <Award className="w-5 h-5 mr-2 text-[#1e40af]" />
             Examinations &amp; Scorecard Publications ({exams.length})
           </h2>
         </div>
@@ -116,7 +116,7 @@ export const AdminResults: React.FC = () => {
                       className={`px-3.5 py-1.5 rounded-lg text-xs font-bold inline-flex items-center transition shadow-2xs ${
                         exam.isPublished
                           ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300'
-                          : 'bg-[#800020] hover:bg-[#66001a] text-white'
+                          : 'bg-[#1e40af] hover:bg-[#1d4ed8] text-white'
                       }`}
                     >
                       {exam.isPublished ? (

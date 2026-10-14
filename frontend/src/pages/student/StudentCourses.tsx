@@ -53,7 +53,7 @@ export const StudentCourses: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -62,7 +62,7 @@ export const StudentCourses: React.FC = () => {
     switch (type) {
       case 'PDF': return <FileText className="w-4 h-4 text-rose-600" />;
       case 'VIDEO': return <Video className="w-4 h-4 text-blue-600" />;
-      default: return <File className="w-4 h-4 text-amber-600" />;
+      default: return <File className="w-4 h-4 text-sky-600" />;
     }
   };
 
@@ -90,13 +90,13 @@ export const StudentCourses: React.FC = () => {
               onClick={() => setSelectedCourse(course)}
               className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                 selectedCourse?.id === course.id
-                  ? 'bg-[#800020] text-white border-[#800020] shadow-sm font-semibold'
+                  ? 'bg-[#1e40af] text-white border-[#1e40af] shadow-sm font-semibold'
                   : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
               }`}
             >
               <div>
                 <span className={`text-[11px] font-mono font-bold block ${
-                  selectedCourse?.id === course.id ? 'text-amber-300' : 'text-[#800020]'
+                  selectedCourse?.id === course.id ? 'text-sky-300' : 'text-[#1e40af]'
                 }`}>
                   {course.code}
                 </span>
@@ -117,7 +117,7 @@ export const StudentCourses: React.FC = () => {
               <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-4">
                   <div>
-                    <span className="px-2.5 py-1 rounded-md bg-[#800020]/10 text-[#800020] text-xs font-bold font-mono">
+                    <span className="px-2.5 py-1 rounded-md bg-blue-50 text-[#1e40af] border border-blue-200 text-xs font-bold font-mono">
                       {selectedCourse.code}
                     </span>
                     <h2 className="text-lg font-bold text-slate-900 mt-2">
@@ -149,7 +149,7 @@ export const StudentCourses: React.FC = () => {
               {/* Modules & Materials List */}
               {lmsLoading ? (
                 <div className="flex justify-center py-12">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#800020]" />
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1e40af]" />
                 </div>
               ) : lmsContent?.modules?.length === 0 ? (
                 <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center text-slate-500 text-sm">
@@ -163,7 +163,7 @@ export const StudentCourses: React.FC = () => {
                       className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs"
                     >
                       <div className="bg-slate-50/80 px-6 py-4 border-b border-slate-100">
-                        <span className="text-[11px] font-bold text-[#800020] uppercase tracking-wider block">
+                        <span className="text-[11px] font-bold text-[#1e40af] uppercase tracking-wider block">
                           Module {mItem.module.orderIndex}
                         </span>
                         <h3 className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
@@ -203,7 +203,7 @@ export const StudentCourses: React.FC = () => {
                                 href={mat.resourceUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#800020] text-xs font-semibold text-slate-700 hover:text-[#800020] flex items-center transition"
+                                className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1e40af] text-xs font-semibold text-slate-700 hover:text-[#1e40af] flex items-center transition"
                               >
                                 View File <ExternalLink className="w-3 h-3 ml-1" />
                               </a>

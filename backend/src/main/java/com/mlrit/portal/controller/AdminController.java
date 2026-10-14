@@ -1,5 +1,7 @@
 package com.mlrit.portal.controller;
 
+import com.mlrit.portal.dto.CreateFacultyRequest;
+import com.mlrit.portal.dto.CreateStudentRequest;
 import com.mlrit.portal.dto.FeePaymentRequest;
 import com.mlrit.portal.dto.FeeStructureRequest;
 import com.mlrit.portal.dto.PasswordResetRequest;
@@ -36,9 +38,25 @@ public class AdminController {
         return ResponseEntity.ok(adminService.getAllStudents());
     }
 
+    @PostMapping("/students")
+    public ResponseEntity<StudentProfile> createStudent(
+            Authentication auth,
+            @Valid @RequestBody CreateStudentRequest request,
+            HttpServletRequest servletRequest) {
+        return ResponseEntity.ok(adminService.createStudent(auth.getName(), request, servletRequest.getRemoteAddr()));
+    }
+
     @GetMapping("/faculty")
     public ResponseEntity<List<FacultyProfile>> getAllFaculty() {
         return ResponseEntity.ok(adminService.getAllFaculty());
+    }
+
+    @PostMapping("/faculty")
+    public ResponseEntity<FacultyProfile> createFaculty(
+            Authentication auth,
+            @Valid @RequestBody CreateFacultyRequest request,
+            HttpServletRequest servletRequest) {
+        return ResponseEntity.ok(adminService.createFaculty(auth.getName(), request, servletRequest.getRemoteAddr()));
     }
 
     @GetMapping("/courses")
@@ -94,5 +112,21 @@ public class AdminController {
             HttpServletRequest servletRequest) {
         Boolean isPublished = body.getOrDefault("isPublished", true);
         return ResponseEntity.ok(adminService.publishExamResults(auth.getName(), examId, isPublished, servletRequest.getRemoteAddr()));
+    }
+
+    @GetMapping("/leaves")
+    public ResponseEntity<List<FacultyLeave>> getAllLeaves() {
+        return ResponseEntity.ok(adminService.getAllLeaves());
+    }
+
+    @PostMapping("/leaves/{leaveId}/action")
+    public ResponseEntity<FacultyLeave> updateLeaveStatus(
+            Authentication auth,
+            @PathVariable Long leaveId,
+            @RequestBody Map<String, String> body,
+            HttpServletRequest servletRequest) {
+        String status = body.getOrDefault("status", "APPROVED");
+        String comments = body.getOrDefault("comments", "Processed by Dean & Portal Administrator");
+        return ResponseEntity.ok(adminService.updateLeaveStatus(auth.getName(), leaveId, status, comments, servletRequest.getRemoteAddr()));
     }
 }

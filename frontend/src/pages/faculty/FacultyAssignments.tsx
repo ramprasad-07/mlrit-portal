@@ -114,7 +114,7 @@ export const FacultyAssignments: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -133,7 +133,7 @@ export const FacultyAssignments: React.FC = () => {
 
         <button
           onClick={() => setCreateModalOpen(true)}
-          className="inline-flex items-center px-4 py-2 bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold rounded-xl shadow-xs transition"
+          className="inline-flex items-center px-4 py-2 bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold rounded-xl shadow-xs transition"
         >
           <Plus className="w-4 h-4 mr-1.5" />
           Post New Assignment
@@ -169,7 +169,7 @@ export const FacultyAssignments: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
           <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <FileCheck className="w-5 h-5 mr-2 text-[#800020]" />
+            <FileCheck className="w-5 h-5 mr-2 text-[#1e40af]" />
             Student Submissions for Review
           </h2>
         </div>
@@ -197,7 +197,7 @@ export const FacultyAssignments: React.FC = () => {
               ) : (
                 submissions.map((sub) => (
                   <tr key={sub.id} className="hover:bg-slate-50/60 transition">
-                    <td className="px-6 py-4 font-mono font-bold text-[#800020]">
+                    <td className="px-6 py-4 font-mono font-bold text-[#1e40af]">
                       {sub.student.hallTicketNo}
                     </td>
                     <td className="px-6 py-4 font-semibold text-slate-900">
@@ -212,7 +212,7 @@ export const FacultyAssignments: React.FC = () => {
                           href={sub.attachmentUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-[#800020] hover:underline font-medium inline-flex items-center text-xs"
+                          className="text-[#1e40af] hover:underline font-medium inline-flex items-center text-xs"
                         >
                           View Link <ExternalLink className="w-3 h-3 ml-1" />
                         </a>
@@ -229,7 +229,7 @@ export const FacultyAssignments: React.FC = () => {
                     <td className="px-6 py-4 text-right">
                       <button
                         onClick={() => openGradeModal(sub)}
-                        className="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold transition"
+                        className="px-3.5 py-1.5 rounded-lg bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold transition"
                       >
                         {sub.status === 'GRADED' ? 'Edit Grade' : 'Grade Submission'}
                       </button>
@@ -260,7 +260,7 @@ export const FacultyAssignments: React.FC = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Lab Project 2: Microservices Architecture Design"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -274,7 +274,7 @@ export const FacultyAssignments: React.FC = () => {
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
               placeholder="Detailed submission guidelines, required format, problem statement..."
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -288,7 +288,7 @@ export const FacultyAssignments: React.FC = () => {
                 required
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               />
             </div>
             <div>
@@ -302,7 +302,7 @@ export const FacultyAssignments: React.FC = () => {
                 max={100}
                 value={maxMarks}
                 onChange={(e) => setMaxMarks(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               />
             </div>
           </div>
@@ -318,7 +318,7 @@ export const FacultyAssignments: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Posting...' : 'Publish Assignment'}
             </button>
@@ -345,7 +345,7 @@ export const FacultyAssignments: React.FC = () => {
               required
               value={gradeMarks}
               onChange={(e) => setGradeMarks(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -358,7 +358,7 @@ export const FacultyAssignments: React.FC = () => {
               value={gradeFeedback}
               onChange={(e) => setGradeFeedback(e.target.value)}
               placeholder="Constructive feedback, code comments, or areas for improvement..."
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -373,7 +373,7 @@ export const FacultyAssignments: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Saving...' : 'Submit Evaluation'}
             </button>

@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/student")
-@PreAuthorize("hasRole('STUDENT')")
+@PreAuthorize("hasAnyRole('STUDENT', 'FACULTY', 'ADMIN')")
 public class StudentController {
 
     private final StudentService studentService;
@@ -71,5 +71,16 @@ public class StudentController {
     @GetMapping("/timetable")
     public ResponseEntity<List<Timetable>> getTimetable(Authentication auth) {
         return ResponseEntity.ok(studentService.getTimetable(auth.getName()));
+    }
+
+    @PostMapping("/fees/pay")
+    public ResponseEntity<com.mlrit.portal.model.FeePayment> payFee(
+            Authentication auth,
+            @RequestBody Map<String, Object> body) {
+        String feeType = (String) body.getOrDefault("feeType", "Regular Fee");
+        java.math.BigDecimal amount = new java.math.BigDecimal(body.getOrDefault("amount", 2500).toString());
+        String mode = (String) body.getOrDefault("paymentMode", "ONLINE_UPI");
+        String refId = (String) body.getOrDefault("referenceId", "TXN" + System.currentTimeMillis());
+        return ResponseEntity.ok(studentService.payStudentFee(auth.getName(), feeType, amount, mode, refId));
     }
 }

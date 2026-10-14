@@ -112,7 +112,7 @@ export const AdminFees: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -138,7 +138,7 @@ export const AdminFees: React.FC = () => {
           </button>
           <button
             onClick={() => setCollectModalOpen(true)}
-            className="px-4 py-2 bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold rounded-xl flex items-center shadow-xs transition"
+            className="px-4 py-2 bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold rounded-xl flex items-center shadow-xs transition"
           >
             <Plus className="w-4 h-4 mr-1.5" />
             Record Fee Payment
@@ -167,7 +167,7 @@ export const AdminFees: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <CreditCard className="w-5 h-5 mr-2 text-[#800020]" />
+            <CreditCard className="w-5 h-5 mr-2 text-[#1e40af]" />
             Configured Institutional Fee Schedules (AY 2026-27)
           </h2>
         </div>
@@ -212,7 +212,7 @@ export const AdminFees: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80">
           <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <Receipt className="w-5 h-5 mr-2 text-[#800020]" />
+            <Receipt className="w-5 h-5 mr-2 text-[#1e40af]" />
             Fee Collection Receipts Log ({payments.length})
           </h2>
         </div>
@@ -233,7 +233,7 @@ export const AdminFees: React.FC = () => {
             <tbody className="divide-y divide-slate-100">
               {payments.map((p) => (
                 <tr key={p.id} className="hover:bg-slate-50/60 transition">
-                  <td className="px-6 py-4 font-mono font-bold text-[#800020]">
+                  <td className="px-6 py-4 font-mono font-bold text-[#1e40af]">
                     {p.receiptNo}
                   </td>
                   <td className="px-6 py-4 font-semibold text-slate-900">
@@ -273,7 +273,7 @@ export const AdminFees: React.FC = () => {
             <select
               value={selectedStudentId || ''}
               onChange={(e) => setSelectedStudentId(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             >
               {students.map((s) => (
                 <option key={s.id} value={s.id}>
@@ -294,7 +294,7 @@ export const AdminFees: React.FC = () => {
                 min={1}
                 value={amountPaid}
                 onChange={(e) => setAmountPaid(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               />
             </div>
 
@@ -305,7 +305,7 @@ export const AdminFees: React.FC = () => {
               <select
                 value={paymentMode}
                 onChange={(e) => setPaymentMode(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               >
                 <option value="UPI">UPI (Google Pay / PhonePe)</option>
                 <option value="NET_BANKING">Net Banking (NEFT/RTGS)</option>
@@ -325,7 +325,7 @@ export const AdminFees: React.FC = () => {
               required
               value={feeType}
               onChange={(e) => setFeeType(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -338,7 +338,7 @@ export const AdminFees: React.FC = () => {
               value={referenceId}
               onChange={(e) => setReferenceId(e.target.value)}
               placeholder="e.g. UTR-98213876 or Challan-102"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -351,7 +351,7 @@ export const AdminFees: React.FC = () => {
               required
               value={collectReason}
               onChange={(e) => setCollectReason(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -366,7 +366,7 @@ export const AdminFees: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Recording...' : 'Generate Receipt & Audit'}
             </button>
@@ -389,7 +389,7 @@ export const AdminFees: React.FC = () => {
               <select
                 value={dept}
                 onChange={(e) => setDept(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               >
                 <option value="CSE">CSE</option>
                 <option value="CSE-AIML">CSE-AIML</option>
@@ -406,7 +406,7 @@ export const AdminFees: React.FC = () => {
               <select
                 value={quota}
                 onChange={(e) => setQuota(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               >
                 <option value="CONVENER">Convener Quota</option>
                 <option value="MANAGEMENT">Management Quota</option>
@@ -423,7 +423,7 @@ export const AdminFees: React.FC = () => {
               required
               value={tuitionFee}
               onChange={(e) => setTuitionFee(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -436,7 +436,7 @@ export const AdminFees: React.FC = () => {
                 type="number"
                 value={specialFee}
                 onChange={(e) => setSpecialFee(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               />
             </div>
             <div>
@@ -447,7 +447,7 @@ export const AdminFees: React.FC = () => {
                 type="number"
                 value={examFee}
                 onChange={(e) => setExamFee(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               />
             </div>
           </div>
@@ -461,7 +461,7 @@ export const AdminFees: React.FC = () => {
               required
               value={structReason}
               onChange={(e) => setStructReason(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -476,7 +476,7 @@ export const AdminFees: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Saving...' : 'Save Structure & Audit'}
             </button>

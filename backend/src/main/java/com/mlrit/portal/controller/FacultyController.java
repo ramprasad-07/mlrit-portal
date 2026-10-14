@@ -98,4 +98,31 @@ public class FacultyController {
             @Valid @RequestBody AttendanceEntryRequest request) {
         return ResponseEntity.ok(facultyService.recordAttendance(auth.getName(), request));
     }
+
+    @GetMapping("/timetable")
+    public ResponseEntity<List<Timetable>> getTimetable(Authentication auth) {
+        return ResponseEntity.ok(facultyService.getTimetable(auth.getName()));
+    }
+
+    @GetMapping("/leaves")
+    public ResponseEntity<List<FacultyLeave>> getLeaves(Authentication auth) {
+        return ResponseEntity.ok(facultyService.getLeaves(auth.getName()));
+    }
+
+    @PostMapping("/leaves")
+    public ResponseEntity<FacultyLeave> applyLeave(
+            Authentication auth,
+            @Valid @RequestBody com.mlrit.portal.dto.FacultyLeaveRequest request) {
+        return ResponseEntity.ok(facultyService.applyLeave(auth.getName(), request));
+    }
+
+    @GetMapping("/students")
+    public ResponseEntity<List<StudentProfile>> getAllStudents() {
+        return ResponseEntity.ok(facultyService.getAllStudentProfiles());
+    }
+
+    @GetMapping("/exams")
+    public ResponseEntity<List<Exam>> getAllExams() {
+        return ResponseEntity.ok(facultyService.getAllExams());
+    }
 }

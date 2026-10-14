@@ -41,7 +41,7 @@ export const FacultyDashboard: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -49,11 +49,11 @@ export const FacultyDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="bg-linear-to-r from-slate-900 to-[#5c0017] rounded-2xl p-6 text-white shadow-md">
+      <div className="bg-linear-to-r from-[#1e3a8a] to-[#1e40af] rounded-2xl p-6 text-white shadow-md">
         <span className="inline-block px-3 py-1 bg-white/15 rounded-full text-xs font-semibold text-amber-300 mb-2">
           Faculty ID: {profile?.employeeId || user?.username}
         </span>
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-serif font-bold tracking-tight">
           Welcome back, {user?.fullName}!
         </h1>
         <p className="text-sm text-slate-300 mt-1">
@@ -68,7 +68,7 @@ export const FacultyDashboard: React.FC = () => {
           value={classes.length}
           subtitle="Active Course Sections"
           icon={Layers}
-          color="maroon"
+          color="blue"
         />
 
         <MetricCard
@@ -97,10 +97,10 @@ export const FacultyDashboard: React.FC = () => {
       </div>
 
       {/* Allocated Classes Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
+      <div className="bg-white rounded-2xl border-t-4 border-t-sky-400 border-x border-b border-slate-200 overflow-hidden shadow-xs">
         <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
-          <h2 className="text-base font-bold text-slate-900 flex items-center">
-            <BookOpen className="w-5 h-5 mr-2 text-[#800020]" />
+          <h2 className="text-base font-serif font-bold text-[#1e3a8a] flex items-center">
+            <BookOpen className="w-5 h-5 mr-2 text-[#1e40af]" />
             Assigned Teaching Subjects &amp; Sections
           </h2>
         </div>
@@ -120,7 +120,7 @@ export const FacultyDashboard: React.FC = () => {
             <tbody className="divide-y divide-slate-100">
               {classes.map((item) => (
                 <tr key={item.id} className="hover:bg-slate-50/60 transition">
-                  <td className="px-6 py-4 font-mono font-bold text-[#800020]">
+                  <td className="px-6 py-4 font-mono font-bold text-[#1e40af]">
                     {item.course.code}
                   </td>
                   <td className="px-6 py-4 font-medium text-slate-900">
@@ -138,13 +138,13 @@ export const FacultyDashboard: React.FC = () => {
                   <td className="px-6 py-4 text-right space-x-2">
                     <Link
                       to="/faculty/lms"
-                      className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#800020] text-xs font-semibold text-slate-700 hover:text-[#800020] inline-block transition"
+                      className="px-3 py-1.5 rounded-lg border border-slate-200 hover:border-[#1e40af] text-xs font-semibold text-slate-700 hover:text-[#1e40af] inline-block transition"
                     >
                       LMS Modules
                     </Link>
                     <Link
                       to="/faculty/marks"
-                      className="px-3 py-1.5 rounded-lg bg-[#800020] hover:bg-[#66001a] text-xs font-semibold text-white inline-block transition"
+                      className="px-3 py-1.5 rounded-lg bg-[#1e40af] hover:bg-[#1d4ed8] text-xs font-semibold text-white inline-block transition"
                     >
                       Enter Marks
                     </Link>

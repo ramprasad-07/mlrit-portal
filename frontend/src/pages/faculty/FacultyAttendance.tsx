@@ -18,7 +18,7 @@ export const FacultyAttendance: React.FC = () => {
       try {
         const [clsRes, stuRes] = await Promise.all([
           api.get('/faculty/classes'),
-          api.get('/admin/students'),
+          api.get('/faculty/students'),
         ]);
         setClasses(clsRes.data);
         setStudents(stuRes.data);
@@ -84,7 +84,7 @@ export const FacultyAttendance: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -201,13 +201,13 @@ export const FacultyAttendance: React.FC = () => {
         <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
           <div className="px-6 py-4 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
             <h2 className="text-base font-bold text-slate-900 flex items-center">
-              <CalendarCheck2 className="w-5 h-5 mr-2 text-[#800020]" />
+              <CalendarCheck2 className="w-5 h-5 mr-2 text-[#1e40af]" />
               Roster &amp; Status Toggles
             </h2>
             <button
               type="submit"
               disabled={saving}
-              className="px-5 py-2 rounded-xl bg-[#800020] hover:bg-[#66001a] text-white text-xs font-bold flex items-center shadow-xs transition disabled:opacity-50"
+              className="px-5 py-2 rounded-xl bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-bold flex items-center shadow-xs transition disabled:opacity-50"
             >
               <Save className="w-4 h-4 mr-1.5" />
               {saving ? 'Recording...' : 'Save & Submit Attendance'}
@@ -223,7 +223,7 @@ export const FacultyAttendance: React.FC = () => {
                   className="px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 hover:bg-slate-50/60 transition"
                 >
                   <div>
-                    <span className="font-mono font-bold text-xs text-[#800020] block">
+                    <span className="font-mono font-bold text-xs text-[#1e40af] block">
                       {student.hallTicketNo}
                     </span>
                     <span className="text-sm font-semibold text-slate-900">

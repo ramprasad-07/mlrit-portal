@@ -44,6 +44,30 @@ public class StudentProfile {
     @Column(name = "fee_category", length = 50)
     private String feeCategory = "CONVENER"; // CONVENER or MANAGEMENT
 
+    @Column(name = "admit_date", length = 30)
+    private String admitDate = "18-Aug-2022";
+
+    @Column(name = "date_of_birth", length = 30)
+    private String dateOfBirth = "15-Jun-2004";
+
+    @Column(length = 50)
+    private String caste = "BC-B";
+
+    @Column(name = "father_name", length = 100)
+    private String fatherName = "K. Ramesh";
+
+    @Column(name = "mother_name", length = 100)
+    private String motherName = "K. Sunitha";
+
+    @Column(name = "parent_mobile", length = 20)
+    private String parentMobile = "9849098765";
+
+    @Column(name = "aadhaar_no", length = 30)
+    private String aadhaarNo = "7849 2039 1102";
+
+    @Column(name = "apaar_id", length = 50)
+    private String apaarId = "APAAR-2022-9901";
+
     public StudentProfile() {}
 
     public StudentProfile(Long id, User user, String hallTicketNo, String department, String branch, String batchYear, Integer currentSemester, String section, BigDecimal currentCgpa, Integer totalCredits, String feeCategory) {
@@ -90,6 +114,30 @@ public class StudentProfile {
     public Integer getTotalCredits() { return totalCredits; }
     public void setTotalCredits(Integer totalCredits) { this.totalCredits = totalCredits; }
 
-    public String getFeeCategory() { return feeCategory; }
+    public String getFeeCategory() { return feeCategory != null ? feeCategory : "CONVENER"; }
     public void setFeeCategory(String feeCategory) { this.feeCategory = feeCategory; }
+
+    public String getAdmitDate() { return admitDate != null ? admitDate : "18-Aug-2022"; }
+    public void setAdmitDate(String admitDate) { this.admitDate = admitDate; }
+
+    public String getDateOfBirth() { return dateOfBirth != null ? dateOfBirth : "15-Jun-2004"; }
+    public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+
+    public String getCaste() { return caste != null ? caste : "BC-B"; }
+    public void setCaste(String caste) { this.caste = caste; }
+
+    public String getFatherName() { return fatherName != null ? fatherName : "K. Ramesh"; }
+    public void setFatherName(String fatherName) { this.fatherName = fatherName; }
+
+    public String getMotherName() { return motherName != null ? motherName : "K. Sunitha"; }
+    public void setMotherName(String motherName) { this.motherName = motherName; }
+
+    public String getParentMobile() { return parentMobile != null ? parentMobile : "9849098765"; }
+    public void setParentMobile(String parentMobile) { this.parentMobile = parentMobile; }
+
+    public String getAadhaarNo() { return aadhaarNo != null ? aadhaarNo : "7849 2039 1102"; }
+    public void setAadhaarNo(String aadhaarNo) { this.aadhaarNo = aadhaarNo; }
+
+    public String getApaarId() { return apaarId != null ? apaarId : "APAAR-2022-9901"; }
+    public void setApaarId(String apaarId) { this.apaarId = apaarId; }
 }

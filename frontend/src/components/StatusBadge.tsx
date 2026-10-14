@@ -16,13 +16,13 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, type = 'genera
 
     // Fees
     if (s === 'SUCCESS' || s === 'CLEARED' || s === 'PAID') return 'bg-emerald-50 text-emerald-700 border-emerald-200';
-    if (s === 'PENDING' || s === 'DUE') return 'bg-amber-50 text-amber-700 border-amber-200';
+    if (s === 'PENDING' || s === 'DUE') return 'bg-sky-50 text-sky-700 border-sky-200';
     if (s === 'FAILED') return 'bg-rose-50 text-rose-700 border-rose-200';
 
     // Grades
     if (s === 'O' || s === 'A+' || s === 'A') return 'bg-emerald-50 text-emerald-700 border-emerald-200';
     if (s === 'B+' || s === 'B') return 'bg-blue-50 text-blue-700 border-blue-200';
-    if (s === 'C') return 'bg-amber-50 text-amber-700 border-amber-200';
+    if (s === 'C') return 'bg-sky-50 text-sky-700 border-sky-200';
     if (s === 'F' || s === 'AB') return 'bg-rose-50 text-rose-700 border-rose-200';
 
     // Submissions

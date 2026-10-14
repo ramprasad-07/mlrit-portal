@@ -71,7 +71,7 @@ export const AdminNotices: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -90,7 +90,7 @@ export const AdminNotices: React.FC = () => {
 
         <button
           onClick={() => setCreateModalOpen(true)}
-          className="inline-flex items-center px-4 py-2 bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold rounded-xl shadow-xs transition"
+          className="inline-flex items-center px-4 py-2 bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold rounded-xl shadow-xs transition"
         >
           <Plus className="w-4 h-4 mr-1.5" />
           Broadcast New Notice
@@ -120,7 +120,7 @@ export const AdminNotices: React.FC = () => {
                   Target: <strong className="text-slate-700">{notice.targetAudience}</strong>
                 </span>
                 {notice.isPinned && (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#800020]/10 text-[#800020]">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-50 text-[#1e40af] border border-blue-200">
                     ★ Pinned Circular
                   </span>
                 )}
@@ -169,7 +169,7 @@ export const AdminNotices: React.FC = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g. Schedule for B.Tech Mid-1 Examinations 2026"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -181,7 +181,7 @@ export const AdminNotices: React.FC = () => {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               >
                 <option value="ACADEMIC">ACADEMIC</option>
                 <option value="EXAM">EXAM</option>
@@ -198,7 +198,7 @@ export const AdminNotices: React.FC = () => {
               <select
                 value={targetAudience}
                 onChange={(e) => setTargetAudience(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+                className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
               >
                 <option value="ALL">All (Students &amp; Faculty)</option>
                 <option value="STUDENT">Students Only</option>
@@ -217,7 +217,7 @@ export const AdminNotices: React.FC = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Detailed announcement details, instructions, venue, or links..."
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -227,7 +227,7 @@ export const AdminNotices: React.FC = () => {
               id="pinCheck"
               checked={isPinned}
               onChange={(e) => setIsPinned(e.target.checked)}
-              className="w-4 h-4 text-[#800020] rounded border-slate-300 focus:ring-[#800020]"
+              className="w-4 h-4 text-[#1e40af] rounded border-slate-300 focus:ring-[#1e40af]"
             />
             <label htmlFor="pinCheck" className="text-xs font-semibold text-slate-700">
               Pin to top of bulletin board
@@ -245,7 +245,7 @@ export const AdminNotices: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Broadcasting...' : 'Publish Notice'}
             </button>

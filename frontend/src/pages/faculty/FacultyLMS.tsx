@@ -108,7 +108,7 @@ export const FacultyLMS: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center py-24">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#800020]" />
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#1e40af]" />
       </div>
     );
   }
@@ -128,7 +128,7 @@ export const FacultyLMS: React.FC = () => {
         {selectedCourse && (
           <button
             onClick={() => setModuleModalOpen(true)}
-            className="inline-flex items-center px-4 py-2 bg-[#800020] hover:bg-[#66001a] text-white text-xs font-semibold rounded-xl shadow-xs transition"
+            className="inline-flex items-center px-4 py-2 bg-[#1e40af] hover:bg-[#1d4ed8] text-white text-xs font-semibold rounded-xl shadow-xs transition"
           >
             <Plus className="w-4 h-4 mr-1.5" />
             Add New Module
@@ -164,7 +164,7 @@ export const FacultyLMS: React.FC = () => {
       {/* Modules List */}
       {contentLoading ? (
         <div className="flex justify-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#800020]" />
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1e40af]" />
         </div>
       ) : lmsContent?.modules?.length === 0 ? (
         <div className="bg-white rounded-2xl border border-slate-200 p-8 text-center text-slate-500 text-sm">
@@ -179,7 +179,7 @@ export const FacultyLMS: React.FC = () => {
             >
               <div className="bg-slate-50/80 px-6 py-4 border-b border-slate-100 flex items-center justify-between">
                 <div>
-                  <span className="text-[11px] font-bold text-[#800020] uppercase tracking-wider block">
+                  <span className="text-[11px] font-bold text-[#1e40af] uppercase tracking-wider block">
                     Module {mItem.module.orderIndex}
                   </span>
                   <h3 className="text-base font-bold text-slate-900 mt-0.5">
@@ -195,7 +195,7 @@ export const FacultyLMS: React.FC = () => {
                     setSelectedModuleId(mItem.module.id);
                     setMaterialModalOpen(true);
                   }}
-                  className="px-3 py-1.5 rounded-lg border border-[#800020] text-[#800020] hover:bg-[#800020] hover:text-white text-xs font-semibold flex items-center transition"
+                  className="px-3 py-1.5 rounded-lg border border-[#1e40af] text-[#1e40af] hover:bg-[#1e40af] hover:text-white text-xs font-semibold flex items-center transition"
                 >
                   <Plus className="w-3.5 h-3.5 mr-1" />
                   Attach Material
@@ -215,7 +215,7 @@ export const FacultyLMS: React.FC = () => {
                     >
                       <div className="flex items-center space-x-3">
                         <div className="p-2 rounded-lg bg-slate-100 text-slate-600">
-                          <FileText className="w-4 h-4 text-[#800020]" />
+                          <FileText className="w-4 h-4 text-[#1e40af]" />
                         </div>
                         <div>
                           <h4 className="text-sm font-semibold text-slate-800">
@@ -261,7 +261,7 @@ export const FacultyLMS: React.FC = () => {
               value={moduleTitle}
               onChange={(e) => setModuleTitle(e.target.value)}
               placeholder="e.g. Unit 3: Design Patterns and Architecture"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -274,7 +274,7 @@ export const FacultyLMS: React.FC = () => {
               value={moduleDesc}
               onChange={(e) => setModuleDesc(e.target.value)}
               placeholder="Brief description of concepts covered in this unit..."
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -289,7 +289,7 @@ export const FacultyLMS: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Creating...' : 'Create Module'}
             </button>
@@ -314,7 +314,7 @@ export const FacultyLMS: React.FC = () => {
               value={materialTitle}
               onChange={(e) => setMaterialTitle(e.target.value)}
               placeholder="e.g. Lecture 5 Notes: Singleton and Factory Pattern"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -325,7 +325,7 @@ export const FacultyLMS: React.FC = () => {
             <select
               value={materialType}
               onChange={(e) => setMaterialType(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             >
               <option value="PDF">PDF Document</option>
               <option value="NOTES">Handwritten / Typed Notes</option>
@@ -345,7 +345,7 @@ export const FacultyLMS: React.FC = () => {
               value={materialUrl}
               onChange={(e) => setMaterialUrl(e.target.value)}
               placeholder="https://mlrit.ac.in/materials/lecture5.pdf"
-              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#800020]"
+              className="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
             />
           </div>
 
@@ -360,7 +360,7 @@ export const FacultyLMS: React.FC = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#800020] hover:bg-[#66001a] transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg text-xs font-semibold text-white bg-[#1e40af] hover:bg-[#1d4ed8] transition disabled:opacity-50"
             >
               {submitting ? 'Attaching...' : 'Upload Material'}
             </button>

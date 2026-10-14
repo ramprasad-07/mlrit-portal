@@ -86,7 +86,7 @@ export const AdminAuditLogs: React.FC = () => {
               onClick={() => setSelectedEntity(tab)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition ${
                 selectedEntity === tab
-                  ? 'bg-[#800020] text-white shadow-xs'
+                  ? 'bg-[#1e40af] text-white shadow-xs'
                   : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
               }`}
             >
@@ -101,7 +101,7 @@ export const AdminAuditLogs: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search audit trail..."
-            className="w-full pl-9 pr-4 py-1.5 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#800020]"
+            className="w-full pl-9 pr-4 py-1.5 rounded-xl border border-slate-300 text-xs focus:outline-none focus:ring-2 focus:ring-[#1e40af]"
           />
           <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-2" />
         </div>
@@ -118,7 +118,7 @@ export const AdminAuditLogs: React.FC = () => {
 
         {loading ? (
           <div className="flex justify-center py-16">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#800020]" />
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1e40af]" />
           </div>
         ) : (
           <div className="overflow-x-auto">

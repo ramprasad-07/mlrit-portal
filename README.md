@@ -5,6 +5,7 @@ An enterprise-grade, mobile-responsive, role-based college portal built for **ML
 1. **LMS**: Courses, learning modules, lecture notes/materials download, assignment workflows, student submissions, and grading.
 2. **ERP & Exam Portal**: Student profile, Mid & End-semester marks sheets, SGPA/CGPA calculation & trends, fee structure & dues tracking, printable e-receipts, attendance percentage tracking (< 75% examination eligibility alerts), timetables, and college bulletin circulars.
 3. **Security & Audit Logs**: Server-side Role-Based Access Control (RBAC), BCrypt password hashing, signed JWT authentication, and a non-repudiable **Audit Trail Log** for every mark revision, fee collection, and exam publishing event.
+4. **MLRIT Mitra AI Campus Assistant**: 24/7 intelligent conversational chatbot with real-time student record queries (live attendance %, mid marks, CGPA, fee dues, today's timetable), interactive quick actions, visual progress meters, speech-to-text, and comprehensive MLRIT knowledge base (placements, courses, campus facilities, demo accounts).
 
 ---
 
@@ -16,6 +17,7 @@ An enterprise-grade, mobile-responsive, role-based college portal built for **ML
 | **Backend** | Spring Boot (Java 25 / 21) | REST APIs, Spring Security (Stateless JWT), Spring Data JPA, Jakarta Validation |
 | **Database** | Supabase (PostgreSQL 15+) | Cloud PostgreSQL with H2 in-memory dev fallback, full DDL schema & triggers |
 | **Security** | BCrypt & JJWT (Java JWT) | Role-based server-side endpoint protection, zero plaintext secrets, audit logging |
+| **AI Assistant** | MLRIT Mitra (Spring Boot + React) | Context-aware NLP engine, real-time database queries, TTS & voice transcription |
 
 ---
 

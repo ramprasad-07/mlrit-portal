@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -208,5 +209,25 @@ public class StudentService {
         return timetableRepository.findByDepartmentAndSemesterAndSectionOrderByStartTimeAsc(
                 student.getDepartment(), student.getCurrentSemester(), student.getSection()
         );
+    }
+
+    @Transactional
+    public FeePayment payStudentFee(String username, String feeType, BigDecimal amount, String mode, String refId) {
+        StudentProfile student = getProfileByUsername(username);
+        String prefix = feeType != null && feeType.length() >= 3 ? feeType.substring(0, 3).toUpperCase() : "REG";
+        String receiptNo = "MLRIT-" + prefix + "-" + (System.currentTimeMillis() % 1000000);
+        FeePayment payment = new FeePayment(
+                null,
+                student,
+                receiptNo,
+                amount,
+                LocalDate.now(),
+                mode != null ? mode : "ONLINE_UPI",
+                refId != null ? refId : "TXN" + UUID.randomUUID().toString().substring(0, 8).toUpperCase(),
+                feeType != null ? feeType : "Regular Fee",
+                "SUCCESS",
+                student.getUser()
+        );
+        return feePaymentRepository.save(payment);
     }
 }

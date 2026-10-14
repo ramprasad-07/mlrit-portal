@@ -359,6 +359,25 @@ public class DataInitializer implements CommandLineRunner {
         timetableRepository.save(new Timetable(null, "CSE", 5, "A", "TUESDAY", LocalTime.of(9, 30), LocalTime.of(10, 30), c3, facProf1, "L-201"));
         timetableRepository.save(new Timetable(null, "CSE", 5, "A", "TUESDAY", LocalTime.of(10, 30), LocalTime.of(11, 30), c4, facProf2, "L-201"));
         timetableRepository.save(new Timetable(null, "CSE", 5, "A", "TUESDAY", LocalTime.of(11, 45), LocalTime.of(12, 45), c1, facProf1, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "TUESDAY", LocalTime.of(13, 30), LocalTime.of(15, 30), c2, facProf2, "Systems Lab 2"));
+
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "WEDNESDAY", LocalTime.of(9, 30), LocalTime.of(10, 30), c2, facProf2, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "WEDNESDAY", LocalTime.of(10, 30), LocalTime.of(11, 30), c1, facProf1, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "WEDNESDAY", LocalTime.of(11, 45), LocalTime.of(12, 45), c4, facProf2, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "WEDNESDAY", LocalTime.of(13, 30), LocalTime.of(15, 30), c3, facProf1, "Web Tech Lab 3"));
+
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "THURSDAY", LocalTime.of(9, 30), LocalTime.of(10, 30), c4, facProf2, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "THURSDAY", LocalTime.of(10, 30), LocalTime.of(11, 30), c3, facProf1, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "THURSDAY", LocalTime.of(11, 45), LocalTime.of(12, 45), c2, facProf2, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "THURSDAY", LocalTime.of(13, 30), LocalTime.of(14, 30), c1, facProf1, "L-201"));
+
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "FRIDAY", LocalTime.of(9, 30), LocalTime.of(10, 30), c1, facProf1, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "FRIDAY", LocalTime.of(10, 30), LocalTime.of(11, 30), c2, facProf2, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "FRIDAY", LocalTime.of(11, 45), LocalTime.of(12, 45), c3, facProf1, "L-201"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "FRIDAY", LocalTime.of(13, 30), LocalTime.of(15, 30), c4, facProf2, "Center of Excellence Lab"));
+
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "SATURDAY", LocalTime.of(9, 30), LocalTime.of(10, 30), c3, facProf1, "Innovation Hub"));
+        timetableRepository.save(new Timetable(null, "CSE", 5, "A", "SATURDAY", LocalTime.of(10, 30), LocalTime.of(11, 30), c4, facProf2, "Seminar Hall 1"));
 
         // 14. NOTICES
         noticeRepository.save(new Notice(
@@ -398,39 +417,104 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void seedAdditionalAccountsIfMissing() {
-        if (userRepository.findByUsernameIgnoreCase("24R21A05B7").isEmpty()) {
-            User stuUser = new User(
-                    null,
-                    "24R21A05B7",
-                    "24r21a05b7@student.mlrit.ac.in",
-                    passwordEncoder.encode("Student@123"),
-                    Role.STUDENT,
-                    "MLRIT Student (24R21A05B7)",
-                    "9849099999",
-                    true
-            );
-            stuUser = userRepository.save(stuUser);
+        // 10 Students across CSE, CSE-AIML, ECE, MECH, CIVIL
+        seedStudentIfMissing("21R21A0501", "rahul.sharma@student.mlrit.ac.in", "Rahul Sharma", "CSE", "B.Tech Computer Science & Engineering", "2022-2026", 5, "A", "8.45", 96);
+        seedStudentIfMissing("21R21A0502", "sneha.reddy@student.mlrit.ac.in", "Sneha Reddy", "CSE", "B.Tech Computer Science & Engineering", "2022-2026", 5, "A", "8.92", 96);
+        seedStudentIfMissing("24R21A05B7", "24r21a05b7@student.mlrit.ac.in", "Ram Charan", "CSE", "B.Tech Computer Science & Engineering", "2024-2028", 3, "B", "8.75", 48);
+        seedStudentIfMissing("22R21A6601", "aarav.patel@student.mlrit.ac.in", "Aarav Patel", "CSE-AIML", "B.Tech Artificial Intelligence & Machine Learning", "2022-2026", 5, "A", "9.10", 96);
+        seedStudentIfMissing("22R21A6602", "divya.teja@student.mlrit.ac.in", "Divya Teja", "CSE-AIML", "B.Tech Artificial Intelligence & Machine Learning", "2022-2026", 5, "B", "8.65", 96);
+        seedStudentIfMissing("22R21A0401", "vikas.verma@student.mlrit.ac.in", "Vikas Verma", "ECE", "B.Tech Electronics & Communication Engineering", "2022-2026", 5, "A", "8.30", 96);
+        seedStudentIfMissing("22R21A0402", "ananya.rao@student.mlrit.ac.in", "Ananya Rao", "ECE", "B.Tech Electronics & Communication Engineering", "2022-2026", 5, "B", "8.85", 96);
+        seedStudentIfMissing("23R21A0301", "karthik.naidu@student.mlrit.ac.in", "Karthik Naidu", "MECH", "B.Tech Mechanical Engineering", "2023-2027", 3, "A", "7.95", 48);
+        seedStudentIfMissing("23R21A0302", "rohit.goud@student.mlrit.ac.in", "Rohit Goud", "MECH", "B.Tech Mechanical Engineering", "2023-2027", 3, "B", "8.15", 48);
+        seedStudentIfMissing("23R21A0101", "pooja.hegde@student.mlrit.ac.in", "Pooja Hegde", "CIVIL", "B.Tech Civil Engineering", "2023-2027", 3, "A", "8.55", 48);
 
-            StudentProfile stuProf = new StudentProfile(
-                    null,
-                    stuUser,
-                    "24R21A05B7",
-                    "CSE",
-                    "B.Tech Computer Science & Engineering",
-                    "2024-2028",
-                    3,
-                    "B",
-                    new BigDecimal("8.75"),
-                    48,
-                    "CONVENER"
-            );
-            stuProf = studentRepository.save(stuProf);
+        // 10 Faculty across CSE, CSE-AIML, ECE, MECH, CIVIL
+        seedFacultyIfMissing("MLRIT-FAC-101", "srinivas.k@mlrit.ac.in", "Dr. K. Srinivas Rao", "CSE", "Professor & Head of Department", "Ph.D. in Computer Science (IIT Madras)", "Cabin 204, Ramanujan Block");
+        seedFacultyIfMissing("MLRIT-FAC-102", "radhika.p@mlrit.ac.in", "Prof. P. Radhika", "CSE", "Associate Professor", "M.Tech, Ph.D (Pursuing - JNTUH)", "Cabin 209, Ramanujan Block");
+        seedFacultyIfMissing("MLRIT-FAC-103", "suresh.m@mlrit.ac.in", "Dr. M. Suresh", "CSE", "Professor", "Ph.D. (NIT Warangal)", "Cabin 210, Ramanujan Block");
+        seedFacultyIfMissing("MLRIT-FAC-104", "anusha.ch@mlrit.ac.in", "Dr. Ch. Anusha", "CSE-AIML", "Associate Professor & HOD", "Ph.D. in AI (JNTUH)", "Cabin 301, Aryabhata Block");
+        seedFacultyIfMissing("MLRIT-FAC-105", "mahesh.v@mlrit.ac.in", "Prof. V. Mahesh", "CSE-AIML", "Assistant Professor", "M.Tech in Machine Learning", "Cabin 305, Aryabhata Block");
+        seedFacultyIfMissing("MLRIT-FAC-106", "ramanjaneyulu.b@mlrit.ac.in", "Dr. B. Ramanjaneyulu", "ECE", "Professor & Head of Department", "Ph.D. (Osmania University)", "Cabin 102, Visvesvaraya Block");
+        seedFacultyIfMissing("MLRIT-FAC-107", "lavanya.s@mlrit.ac.in", "Prof. S. Lavanya", "ECE", "Associate Professor", "M.Tech VLSI Design", "Cabin 108, Visvesvaraya Block");
+        seedFacultyIfMissing("MLRIT-FAC-108", "venkateshwarlu.g@mlrit.ac.in", "Dr. G. Venkateshwarlu", "MECH", "Professor & Head of Department", "Ph.D. (IIT Bombay)", "Cabin 401, Kalam Block");
+        seedFacultyIfMissing("MLRIT-FAC-109", "sandeep.k@mlrit.ac.in", "Prof. K. Sandeep", "MECH", "Assistant Professor", "M.Tech Thermal Engg", "Cabin 405, Kalam Block");
+        seedFacultyIfMissing("MLRIT-FAC-110", "vijaykumar.t@mlrit.ac.in", "Dr. T. Vijay Kumar", "CIVIL", "Professor & Head of Department", "Ph.D. (NIT Calicut)", "Cabin 501, CV Raman Block");
+
+        // Ensure all student profiles have ERP attributes
+        List<StudentProfile> allProfiles = studentRepository.findAll();
+        for (StudentProfile p : allProfiles) {
+            boolean updated = false;
+            if (p.getFatherName() == null || p.getFatherName().isBlank()) {
+                p.setFatherName("K. " + (p.getUser() != null ? p.getUser().getFullName().split(" ")[0] : "Ramesh") + " Sharma");
+                updated = true;
+            }
+            if (p.getMotherName() == null || p.getMotherName().isBlank()) {
+                p.setMotherName("K. Saraswathi Devi");
+                updated = true;
+            }
+            if (p.getAadhaarNo() == null || p.getAadhaarNo().isBlank()) {
+                p.setAadhaarNo("7849 2039 " + (1000 + (p.getId() != null ? p.getId() : 1) * 37));
+                updated = true;
+            }
+            if (p.getApaarId() == null || p.getApaarId().isBlank()) {
+                p.setApaarId("APAAR-2024-" + p.getHallTicketNo());
+                updated = true;
+            }
+            if (p.getParentMobile() == null || p.getParentMobile().isBlank()) {
+                p.setParentMobile("98480" + (10000 + (p.getId() != null ? p.getId() : 1) * 73));
+                updated = true;
+            }
+            if (p.getAdmitDate() == null || p.getAdmitDate().isBlank()) {
+                p.setAdmitDate(p.getBatchYear() != null && p.getBatchYear().contains("2024") ? "14-Aug-2024" : "18-Aug-2022");
+                updated = true;
+            }
+            if (p.getDateOfBirth() == null || p.getDateOfBirth().isBlank()) {
+                p.setDateOfBirth("15-Jun-2004");
+                updated = true;
+            }
+            if (p.getCaste() == null || p.getCaste().isBlank()) {
+                p.setCaste("BC-B");
+                updated = true;
+            }
+            if (updated) {
+                studentRepository.save(p);
+            }
+        }
+    }
+
+    private void seedStudentIfMissing(String roll, String email, String name, String dept, String branch, String batch, int sem, String sec, String cgpa, int credits) {
+        if (userRepository.findByUsernameIgnoreCase(roll).isEmpty()) {
+            User user = new User(null, roll, email, passwordEncoder.encode("Student@123"), Role.STUDENT, name, "98490" + (10000 + (int)(Math.random() * 89999)), true);
+            user = userRepository.save(user);
+
+            StudentProfile prof = new StudentProfile(null, user, roll, dept, branch, batch, sem, sec, new BigDecimal(cgpa), credits, "CONVENER");
+            prof.setAdmitDate(batch.contains("2024") ? "14-Aug-2024" : "18-Aug-2022");
+            prof.setDateOfBirth("15-Jun-2004");
+            prof.setCaste("BC-B");
+            prof.setFatherName("K. " + name.split(" ")[0] + " Sharma");
+            prof.setMotherName("K. Saraswathi Devi");
+            prof.setParentMobile("98480" + (10000 + (int)(Math.random() * 89999)));
+            prof.setAadhaarNo("7849 2039 " + (1000 + (int)(Math.random() * 8999)));
+            prof.setApaarId("APAAR-2024-" + roll);
+            prof = studentRepository.save(prof);
 
             List<Course> courses = courseRepository.findAll();
-            for (Course course : courses) {
-                enrollmentRepository.save(new CourseEnrollment(null, stuProf, course, "2026-27", 3, "ENROLLED"));
+            for (Course c : courses) {
+                enrollmentRepository.save(new CourseEnrollment(null, prof, c, "2026-27", sem, "ENROLLED"));
             }
-            System.out.println(">>> Seeded student account: 24R21A05B7");
+            System.out.println(">>> Seeded Student: " + roll + " - " + name + " (" + dept + ")");
+        }
+    }
+
+    private void seedFacultyIfMissing(String empId, String email, String name, String dept, String desig, String qual, String cabin) {
+        if (userRepository.findByUsernameIgnoreCase(empId).isEmpty()) {
+            User user = new User(null, empId, email, passwordEncoder.encode("Faculty@123"), Role.FACULTY, name, "98490" + (10000 + (int)(Math.random() * 89999)), true);
+            user = userRepository.save(user);
+
+            FacultyProfile prof = new FacultyProfile(null, user, empId, dept, desig, qual, cabin);
+            facultyRepository.save(prof);
+            System.out.println(">>> Seeded Faculty: " + empId + " - " + name + " (" + dept + ")");
         }
     }
 }

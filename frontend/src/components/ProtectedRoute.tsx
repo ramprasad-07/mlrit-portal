@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth, UserRole } from '../context/AuthContext';
+import { AdminLoginPage } from '../pages/admin/AdminLoginPage';
 
 interface ProtectedRouteProps {
   allowedRoles?: UserRole[];
@@ -12,9 +13,14 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ allowedRoles }) 
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-slate-50">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-800"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1e40af]"></div>
       </div>
     );
+  }
+
+  // If accessing Admin portal and not logged in as ADMIN, render dedicated AdminLoginPage directly
+  if (allowedRoles?.includes('ADMIN') && (!user || user.role !== 'ADMIN')) {
+    return <AdminLoginPage />;
   }
 
   if (!user) {

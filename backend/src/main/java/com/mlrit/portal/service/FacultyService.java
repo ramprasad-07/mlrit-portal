@@ -27,6 +27,8 @@ public class FacultyService {
     private final ExamRepository examRepository;
     private final StudentProfileRepository studentRepository;
     private final AuditLogService auditLogService;
+    private final TimetableRepository timetableRepository;
+    private final FacultyLeaveRepository facultyLeaveRepository;
 
     public FacultyService(
             FacultyProfileRepository facultyProfileRepository,
@@ -40,7 +42,9 @@ public class FacultyService {
             MarkRecordRepository markRecordRepository,
             ExamRepository examRepository,
             StudentProfileRepository studentRepository,
-            AuditLogService auditLogService) {
+            AuditLogService auditLogService,
+            TimetableRepository timetableRepository,
+            FacultyLeaveRepository facultyLeaveRepository) {
         this.facultyProfileRepository = facultyProfileRepository;
         this.allocationRepository = allocationRepository;
         this.courseRepository = courseRepository;
@@ -53,6 +57,8 @@ public class FacultyService {
         this.examRepository = examRepository;
         this.studentRepository = studentRepository;
         this.auditLogService = auditLogService;
+        this.timetableRepository = timetableRepository;
+        this.facultyLeaveRepository = facultyLeaveRepository;
     }
 
     public FacultyProfile getProfileByUsername(String username) {
@@ -210,5 +216,39 @@ public class FacultyService {
 
     public List<MarkRecord> getMarksByCourseAndExam(Long courseId, Long examId) {
         return markRecordRepository.findByCourseIdAndExamId(courseId, examId);
+    }
+
+    public List<Timetable> getTimetable(String username) {
+        FacultyProfile faculty = getProfileByUsername(username);
+        return timetableRepository.findByFacultyIdOrderByStartTimeAsc(faculty.getId());
+    }
+
+    public List<FacultyLeave> getLeaves(String username) {
+        FacultyProfile faculty = getProfileByUsername(username);
+        return facultyLeaveRepository.findByFacultyIdOrderByAppliedAtDesc(faculty.getId());
+    }
+
+    @Transactional
+    public FacultyLeave applyLeave(String username, com.mlrit.portal.dto.FacultyLeaveRequest request) {
+        FacultyProfile faculty = getProfileByUsername(username);
+        FacultyLeave leave = new FacultyLeave(
+                null,
+                faculty,
+                request.getLeaveType(),
+                request.getFromDate(),
+                request.getToDate(),
+                request.getTotalDays(),
+                request.getReason(),
+                "PENDING"
+        );
+        return facultyLeaveRepository.save(leave);
+    }
+
+    public List<StudentProfile> getAllStudentProfiles() {
+        return studentRepository.findAll();
+    }
+
+    public List<Exam> getAllExams() {
+        return examRepository.findAll();
     }
 }
